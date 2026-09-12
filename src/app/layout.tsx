@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Gatherly | Event requirements",
+  title: "GoPrattle Requirement Ass.",
   description: "Create and manage event requirements.",
 };
 
