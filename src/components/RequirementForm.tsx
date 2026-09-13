@@ -122,7 +122,7 @@ export default function RequirementForm() {
         <header className="h-[74px] max-w-[1060px] mx-auto flex justify-between items-center px-7 border-b border-brand-300 animate-fade-in max-md:px-4 max-md:h-16">
           <strong className="text-sm font-extrabold tracking-[-0.2px]">Requirement form</strong>
           <button
-            className="border-0 bg-transparent text-brand-700 text-xs font-extrabold transition-all duration-200 hover:text-brand-500 hover:-translate-x-0.5"
+            className="border-0 bg-transparent text-brand-700 text-xs font-extrabold transition-all duration-200 hover:text-brand-500 hover:font "
             onClick={() => router.push("/requirements")}
           >
             View requirements
@@ -142,7 +142,7 @@ export default function RequirementForm() {
                 <i
                   className={`grid place-items-center w-[26px] h-[26px] border-2 rounded-full not-italic text-[10px] transition-all duration-300 max-md:w-[22px] max-md:h-[22px] max-md:text-[9px] ${
                     index <= step
-                      ? "text-white bg-brand-700 border-brand-700 shadow-[0_2px_8px_rgba(91,58,37,0.25)] scale-[1.08]"
+                      ? "border-3  bg-brand-700 border-brand-700 shadow-[0_2px_8px_rgba(91,58,37,0.25)] scale-[1.08]"
                       : "border-brand-300"
                   }`}
                 >
@@ -163,15 +163,20 @@ export default function RequirementForm() {
                 {categoryOptions.map((option, idx) => (
                   <button
                     key={option.id}
-                    className={`min-h-[250px] text-left border-solid border-[1.5px] p-[18px] rounded-xl transition-all duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] animate-fade-up
+                    className={`relative min-h-[250px] text-left border-solid p-[18px] rounded-xl transition-all duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] animate-fade-up
                       max-md:min-h-0 max-md:grid max-md:grid-cols-[100px_1fr] max-md:gap-x-3.5 max-md:gap-y-0 max-md:p-3.5 max-md:items-center max-[400px]:grid-cols-[70px_1fr]
                       ${category === option.id
-                        ? "border-brand-500 bg-brand-50 shadow-[0_4px_16px_rgba(91,58,37,0.12)] -translate-y-0.5"
-                        : "border-border bg-surface hover:border-brand-400 hover:bg-surface-hover hover:shadow-[0_6px_20px_rgba(91,58,37,0.08)] hover:-translate-y-[3px]"
+                        ? "border-[2.5px] border-[#5b3a25] bg-[#f5ead9] shadow-[0_6px_24px_rgba(91,58,37,0.18)] -translate-y-1 scale-[1.02]"
+                        : "border-[1.5px] border-border bg-surface hover:border-brand-400 hover:bg-surface-hover hover:shadow-[0_6px_20px_rgba(91,58,37,0.08)] hover:-translate-y-[3px]"
                       }`}
                     style={{ animationDelay: `${0.05 + idx * 0.07}s` }}
                     onClick={() => setValue("category", option.id)}
                   >
+                    {category === option.id && (
+                      <span className="absolute top-3 right-3 w-6 h-6 rounded-full bg-[#5b3a25] text-white text-xs flex items-center justify-center shadow-[0_2px_6px_rgba(91,58,37,0.3)]">
+                        ✓
+                      </span>
+                    )}
                     <div className="h-[145px] grid place-items-center overflow-hidden mb-3.5 bg-[#fefcf8] rounded-lg border border-border-subtle max-md:h-20 max-md:mb-0 max-md:row-span-2 max-[400px]:h-[60px]">
                       <img
                         src={option.image}

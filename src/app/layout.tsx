@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "GoPrattle Requirement Ass.",
+  title: "GoPratle Requirement Ass.",
   description: "Create and manage event requirements.",
 };
 

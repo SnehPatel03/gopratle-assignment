@@ -38,7 +38,7 @@ export default function RequirementList() {
         <strong className="text-sm font-extrabold tracking-[-0.2px]">Requirements</strong>
         <button
           className="border-0 rounded-lg px-5 py-3 bg-brand-700 text-surface text-xs font-extrabold transition-all duration-200 shadow-[0_2px_8px_rgba(91,58,37,0.15)] hover:bg-brand-600 hover:shadow-[0_4px_14px_rgba(91,58,37,0.2)] hover:-translate-y-px"
-          onClick={() => router.push("/")}
+          onClick={() => router.push('/create')}
         >
           + New requirement
         </button>
