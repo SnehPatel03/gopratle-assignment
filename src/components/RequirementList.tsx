@@ -36,12 +36,12 @@ export default function RequirementList() {
     <main className="min-h-screen bg-[linear-gradient(168deg,#fffdf9,#f5f0e8)] pb-[60px]">
       <header className="h-[74px] max-w-[1060px] mx-auto flex justify-between items-center px-7 border-b border-brand-300 animate-fade-in max-md:px-4 max-md:h-16">
         <strong className="text-sm font-extrabold tracking-[-0.2px]">Requirements</strong>
-        <button
-          className="border-0 rounded-lg px-5 py-3 bg-brand-700 text-surface text-xs font-extrabold transition-all duration-200 shadow-[0_2px_8px_rgba(91,58,37,0.15)] hover:bg-brand-600 hover:shadow-[0_4px_14px_rgba(91,58,37,0.2)] hover:-translate-y-px"
-          onClick={() => router.push('/create')}
-        >
-          + New requirement
-        </button>
+      <button
+className="rounded-md bg-[#5b3a25] px-4 py-2.5 text-[12px] font-bold tracking-[0.1px] text-white transition-colors duration-150 hover:bg-[#6b452d]"
+  onClick={() => router.push("/create")}
+>
+  + New requirement
+</button>
       </header>
 
       <div className="max-w-[1060px] mt-[46px] mx-auto mb-[26px] px-7 animate-fade-up max-md:mt-7 max-md:px-4">

@@ -278,15 +278,15 @@ export default function RequirementForm() {
             )}
             {step < 2 ? (
               <button
-                className="border-0 rounded-lg px-5 py-3 bg-brand-700 text-surface text-xs font-extrabold transition-all duration-200 shadow-[0_2px_8px_rgba(91,58,37,0.15)] hover:bg-brand-600 hover:shadow-[0_4px_14px_rgba(91,58,37,0.2)] hover:-translate-y-px active:translate-y-0"
+                className="border-0 rounded-lg px-6 py-3 bg-[#5b3a25] text-white text-[12px] font-bold tracking-[0.1px] shadow-[0_2px_8px_rgba(91,58,37,0.18)] transition-all duration-200 hover:bg-[#6b452d] hover:shadow-[0_6px_20px_rgba(91,58,37,0.25)] hover:-translate-y-[2px] active:translate-y-0 active:shadow-[0_2px_6px_rgba(91,58,37,0.15)] disabled:opacity-40 disabled:hover:translate-y-0 disabled:hover:shadow-[0_2px_8px_rgba(91,58,37,0.18)]"
                 disabled={step === 0 && !category}
                 onClick={() => void advance()}
               >
-                Continue
+                Continue →
               </button>
             ) : (
               <button
-                className="border-0 rounded-lg px-5 py-3 bg-brand-700 text-surface text-xs font-extrabold transition-all duration-200 shadow-[0_2px_8px_rgba(91,58,37,0.15)] hover:bg-brand-600 hover:shadow-[0_4px_14px_rgba(91,58,37,0.2)] hover:-translate-y-px active:translate-y-0"
+                className="border-0 rounded-lg px-6 py-3 bg-[#5b3a25] text-white text-[12px] font-bold tracking-[0.1px] shadow-[0_2px_8px_rgba(91,58,37,0.18)] transition-all duration-200 hover:bg-[#6b452d] hover:shadow-[0_6px_20px_rgba(91,58,37,0.25)] hover:-translate-y-[2px] active:translate-y-0 active:shadow-[0_2px_6px_rgba(91,58,37,0.15)] disabled:opacity-40 disabled:hover:translate-y-0 disabled:hover:shadow-[0_2px_8px_rgba(91,58,37,0.18)]"
                 disabled={busy}
                 onClick={() => void submit()}
               >
