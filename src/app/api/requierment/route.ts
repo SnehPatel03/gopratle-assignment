@@ -130,12 +130,13 @@ export async function POST(req: NextRequest) {
       { status: 201 },
     );
   } catch (error) {
-    console.error("Create requirement error:", error);
+    const message = error instanceof Error ? error.message : String(error);
+    console.error("Create requirement error:", message, error);
 
     return NextResponse.json(
       {
         success: false,
-        message: "Failed to create requirement.",
+        message: `Failed to create requirement: ${message}`,
       },
       { status: 500 },
     );
