@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import { NextResponse } from "next/server";
+import { auth } from "@clerk/nextjs/server";
 import { connectDB } from "@/lib/db";
 import { Crew } from "@/models/Crew";
 import { Performer } from "@/models/Performer";
@@ -21,11 +22,28 @@ export async function GET(_request: Request, { params }: paramsProps) {
   }
 
   try {
+    const { userId } = await auth();
+
+    if (!userId) {
+      return NextResponse.json(
+        { success: false, message: "Unauthorized" },
+        { status: 401 },
+      );
+    }
+
     await connectDB();
 
     const requirement = await Requirement.findById(id).lean();
 
     if (!requirement) {
+      return NextResponse.json(
+        { success: false, message: "Requirement not found." },
+        { status: 404 },
+      );
+    }
+
+    // Ensure the requirement belongs to the authenticated user
+    if (requirement.userId !== userId) {
       return NextResponse.json(
         { success: false, message: "Requirement not found." },
         { status: 404 },

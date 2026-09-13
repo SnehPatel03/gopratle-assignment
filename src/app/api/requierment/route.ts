@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@clerk/nextjs/server";
 import { Requirement } from "@/models/Requirement";
 import { Planner } from "@/models/Planner";
 import { Performer } from "@/models/Performer";
@@ -8,9 +9,20 @@ import { requirementSchema } from "@/lib/validations/requirement.schema";
 
 export async function GET() {
   try {
+    const { userId } = await auth();
+
+    if (!userId) {
+      return NextResponse.json(
+        { success: false, message: "Unauthorized" },
+        { status: 401 },
+      );
+    }
+
     await connectDB();
 
-    const requirements = await Requirement.find().sort({ createdAt: -1 }).lean();;
+    const requirements = await Requirement.find({ userId })
+      .sort({ createdAt: -1 })
+      .lean();
 
     return NextResponse.json({
       success: true,
@@ -29,6 +41,15 @@ export async function GET() {
 
 export async function POST(req: NextRequest) {
   try {
+    const { userId } = await auth();
+
+    if (!userId) {
+      return NextResponse.json(
+        { success: false, message: "Unauthorized" },
+        { status: 401 },
+      );
+    }
+
     await connectDB();
 
     const body = await req.json();
@@ -66,6 +87,7 @@ export async function POST(req: NextRequest) {
 
     const requirement = await Requirement.create({
       requirementId: `REQ-${new Date().getFullYear()}-${Date.now()}`,
+      userId,
       category: data.category,
       event: data.event,
       budget: data.budget,

@@ -7,6 +7,11 @@ const RequirementSchema = new Schema(
       required: true,
       unique: true,
     },
+    userId: {
+      type: String,
+      required: true,
+      index: true,
+    },
     category: {
       type: String,
       required: true,

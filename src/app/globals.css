@@ -798,6 +798,42 @@ button:disabled {
   min-height: 350px;
 }
 
+/* ───────────── AUTH PAGE ───────────── */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(168deg, #fffdf9 0%, #f7f2e9 100%);
+  padding: 28px;
+  animation: fadeIn 0.4s ease both;
+}
+
+/* ───────────── HEADER AUTH CONTROLS ───────────── */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.auth-btn {
+  border: 1.5px solid #e0d5c7;
+  border-radius: 8px;
+  padding: 8px 18px;
+  background: transparent;
+  color: #5b3a25;
+  font-size: 12px;
+  font-weight: 700;
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.auth-btn:hover {
+  border-color: #8b6342;
+  background: #faf5ed;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(91, 58, 37, 0.08);
+}
+
 /* ───────────── LANDING PAGE ───────────── */
 .landing {
   min-height: 100vh;
